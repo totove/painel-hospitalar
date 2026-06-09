@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import random
 
-# ── Configuração da página ────────────────────────────────────────────────────
+
 st.set_page_config(
     page_title="Painel Inteligente de Acesso Hospitalar",
     page_icon="🏥",
@@ -12,7 +12,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ── CSS customizado ───────────────────────────────────────────────────────────
+
 st.markdown("""
 <style>
     /* Sidebar */
@@ -81,7 +81,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ── Dados simulados ───────────────────────────────────────────────────────────
+
 random.seed(42)
 
 municipios_sp = [
@@ -143,9 +143,7 @@ with st.sidebar:
 
 df_f = df[df["Estado"].isin(estado_filtro)] if estado_filtro else df
 
-# ══════════════════════════════════════════════════════════════════════════════
-# PÁGINA 1 — DASHBOARD
-# ══════════════════════════════════════════════════════════════════════════════
+
 if pagina == "📊 Dashboard":
 
     st.markdown("""
@@ -213,9 +211,6 @@ if pagina == "📊 Dashboard":
                 unsafe_allow_html=True
             )
 
-# ══════════════════════════════════════════════════════════════════════════════
-# PÁGINA 2 — ANÁLISE POR REGIÃO
-# ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "🔍 Análise por Região":
 
     st.markdown("""
@@ -278,9 +273,6 @@ elif pagina == "🔍 Análise por Região":
         use_container_width=True, hide_index=True
     )
 
-# ══════════════════════════════════════════════════════════════════════════════
-# PÁGINA 3 — SELECT AI
-# ══════════════════════════════════════════════════════════════════════════════
 elif pagina == "🤖 Select AI":
 
     st.markdown("""
@@ -370,9 +362,7 @@ GROUP  BY estado""",
         else:
             st.info("💡 No protótipo, use uma das sugestões acima. Na versão final, qualquer pergunta será respondida via Oracle Select AI conectado ao banco real.")
 
-# ══════════════════════════════════════════════════════════════════════════════
-# PÁGINA 4 — ESTABELECIMENTOS
-# ══════════════════════════════════════════════════════════════════════════════
+
 elif pagina == "🏨 Estabelecimentos":
 
     st.markdown("""
